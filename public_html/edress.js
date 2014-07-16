@@ -1,6 +1,7 @@
+var video = document.querySelector('video');
+var canvas = document.querySelector('canvas');
+
 var EDress = {
-    video: document.querySelector('video'),
-    canvas: document.querySelector('canvas'),
     enableCamera: function() {
         navigator.getUserMedia = (navigator.getUserMedia ||
                 navigator.webkitGetUserMedia ||
