@@ -1,4 +1,6 @@
-var video = document.querySelector('video');
+var video = document.createElement('video');
+video.autoplay = true;
+video.style.display = 'none';
 var canvas = document.querySelector('canvas');
 
 var EDress = {
