@@ -1,6 +1,10 @@
 var video = document.createElement('video');
 video.autoplay = true;
 var canvas = document.querySelector('canvas');
+canvas.addEventListener("mousedown", mouseDown);
+
+var canvasMouseX;
+var canvasMouseY;
 
 var EDress = {
     enableCamera: function() {
@@ -34,7 +38,15 @@ var EDress = {
 
 function draw(v, c, w, h) {
     c.drawImage(v, 0, 0, w, h);
+    var dress = new Image();
+    dress.src = 'dress.jpg';
+    c.drawImage(dress, canvasMouseX, canvasMouseY);
     setTimeout(draw, 20, v, c, w, h);
+}
+
+function mouseDown(event) {
+    canvasMouseX = event.clientX - (canvas.offsetLeft - window.pageXOffset);
+    canvasMouseY = event.clientY - (canvas.offsetTop - window.pageYOffset);
 }
 
 document.addEventListener("DOMContentLoaded", function() {
