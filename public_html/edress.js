@@ -1,6 +1,5 @@
 var video = document.createElement('video');
 video.autoplay = true;
-video.style.display = 'none';
 var canvas = document.querySelector('canvas');
 
 var EDress = {
@@ -29,9 +28,7 @@ var EDress = {
     },
     videoToCanvas: function() {
         var context = canvas.getContext('2d');
-        video.addEventListener('play', function() {
-            draw(this, context, canvas.width, canvas.height);
-        }, false);
+        draw(video, context, canvas.width, canvas.height);
     }
 };
 
