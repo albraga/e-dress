@@ -2,7 +2,6 @@ var video = document.createElement('video');
 video.autoplay = true;
 var canvas = document.querySelector('canvas');
 canvas.addEventListener("mousedown", mouseDown);
-
 var canvasMouseX;
 var canvasMouseY;
 
@@ -33,13 +32,20 @@ var EDress = {
     videoToCanvas: function() {
         var context = canvas.getContext('2d');
         draw(video, context, canvas.width, canvas.height);
+    },
+    
+    init: function() {
+        this.enableCamera();
+        this.videoToCanvas();
     }
+    
+    
 };
 
 function draw(v, c, w, h) {
     c.drawImage(v, 0, 0, w, h);
     var dress = new Image();
-    dress.src = 'dress.jpg';
+    dress.src = 'dress.png';
     c.drawImage(dress, canvasMouseX, canvasMouseY);
     setTimeout(draw, 20, v, c, w, h);
 }
@@ -50,8 +56,7 @@ function mouseDown(event) {
 }
 
 document.addEventListener("DOMContentLoaded", function() {
-    EDress.enableCamera();
-    EDress.videoToCanvas();
+    EDress.init();
 });
 
 
