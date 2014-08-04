@@ -12,10 +12,10 @@ var EDress = (function() {
         canvasMouseY = event.clientY - (canvas.offsetTop - window.pageYOffset);
     };
 
-    function draw(v, c, w, h) {
+    draw = function(v, c, w, h) {
         c.drawImage(v, 0, 0, w, h);
         var dress = new Image();
-        dress.src = 'dress.png';
+        dress.src = 'img/dress.png';
         c.drawImage(dress, canvasMouseX, canvasMouseY);
         setTimeout(draw, 20, v, c, w, h);
     };
