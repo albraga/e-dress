@@ -6,17 +6,24 @@ var EDress = (function() {
     canvas.addEventListener("mousedown", mouseDown);
     var canvasMouseX;
     var canvasMouseY;
-
+    var dresses = new Array();
+    var dressIndex;
+    
     function mouseDown(event) {
         canvasMouseX = event.clientX - (canvas.offsetLeft - window.pageXOffset);
         canvasMouseY = event.clientY - (canvas.offsetTop - window.pageYOffset);
     };
+    
+    preloadDresses = function() {
+        for (i = 0; i < preloadDresses.arguments.length; i++) {
+            dresses[i] = new Image();
+            dresses[i].src = preloadDresses.arguments[i];
+        }
+    };
 
     draw = function(v, c, w, h) {
         c.drawImage(v, 0, 0, w, h);
-        var dress = new Image();
-        dress.src = 'img/dress.png';
-        c.drawImage(dress, canvasMouseX, canvasMouseY);
+        c.drawImage(dresses[dressIndex], canvasMouseX, canvasMouseY);
         setTimeout(draw, 20, v, c, w, h);
     };
 
@@ -50,6 +57,7 @@ var EDress = (function() {
     };
     
     init = function() {
+        this.preloadDresses('img/1.png', 'img/2.png','img/3.png');
         this.enableCamera();
         this.videoToCanvas();
     };
