@@ -15,7 +15,6 @@ var EDress = (function() {
     button.addEventListener('click', shoot);
     img1.addEventListener('click', function() {
        dressIndex = 1; 
-       alert(dressIndex);
     });
     img2.addEventListener('click', function() {
        dressIndex = 2; 
