@@ -1,5 +1,9 @@
-canvas {
-     width: 700px;
-     height: 500px;
+#main_canvas {
+    height: 450px;
+    background-color: black;
+}
+
+#myCarousel {
+    height: 200px;
 }
 

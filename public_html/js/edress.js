@@ -1,17 +1,23 @@
 
 var EDress = (function() {
     var video = document.createElement('video'),
-        canvas = document.querySelector('canvas'),
+        canvas = document.querySelector('main_canvas'),
+        button = document.querySelector('button'),
         canvasMouseX,
         canvasMouseY,
         dresses = new Array(),
         dressIndex;
     video.autoplay = true;
-    canvas.addEventListener("mousedown", mouseDown);
+    canvas.addEventListener('mousedown', mouseDown);
+    button.addEventListener('click', shoot);
     
     function mouseDown(event) {
         canvasMouseX = event.clientX - (canvas.offsetLeft - window.pageXOffset);
         canvasMouseY = event.clientY - (canvas.offsetTop - window.pageYOffset);
+    };
+    
+    function shoot() {
+        window.setTimeout(takePicture, 3000);
     };
     
     takePicture = function() {
@@ -19,10 +25,6 @@ var EDress = (function() {
         var pic = new Image();
         pic.src = picURL;
         document.body.appendChild(pic);
-    };
-    
-    shoot = function() {
-        window.setTimeout(takePicture, 3000);
     };
     
     preloadDresses = function() {
@@ -54,11 +56,11 @@ var EDress = (function() {
                 video.src = window.URL.createObjectURL(localMediaStream);
             },
                     function(err) {
-                        alert("Erro: " + err);
+                        alert('Erro: ' + err);
                     }
             );
         } else {
-            alert("getUserMedia not supported");
+            alert('getUserMedia not supported');
         }
     };
     
@@ -75,11 +77,4 @@ var EDress = (function() {
 
 init();
 }());
-
-
-document.addEventListener("DOMContentLoaded", function() {
-    //EDress.init();
-});
-
-
 
