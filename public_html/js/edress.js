@@ -9,18 +9,18 @@ var EDress = (function() {
         canvasMouseX,
         canvasMouseY,
         dresses = new Array(),
-        dressIndex;
+        dressIndex = 0;
     video.autoplay = true;
     canvas.addEventListener('mousedown', mouseDown);
     button.addEventListener('click', shoot);
     img1.addEventListener('click', function() {
-       dressIndex = 1; 
+       dressIndex = 0; 
     });
     img2.addEventListener('click', function() {
-       dressIndex = 2; 
+       dressIndex = 1; 
     });
     img3.addEventListener('click', function() {
-       dressIndex = 3; 
+       dressIndex = 2; 
     });
     function mouseDown(event) {
         canvasMouseX = event.clientX - (canvas.offsetLeft - window.pageXOffset);
@@ -47,7 +47,7 @@ var EDress = (function() {
 
     draw = function(v, c, w, h) {
         c.drawImage(v, 0, 0, w, h);
-        c.drawImage(dresses[dressIndex], canvasMouseX, canvasMouseY);
+        c.drawImage(dresses[dressIndex], canvasMouseX - 100, canvasMouseY -100);
         window.setTimeout(draw, 20, v, c, w, h);
     };
 
