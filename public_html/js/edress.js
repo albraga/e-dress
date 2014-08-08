@@ -1,7 +1,7 @@
 
 var EDress = (function() {
     var video = document.createElement('video'),
-        canvas = document.querySelector('main_canvas'),
+        canvas = document.querySelector('#main_canvas'),
         button = document.querySelector('button'),
         canvasMouseX,
         canvasMouseY,
