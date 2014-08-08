@@ -3,6 +3,9 @@ var EDress = (function() {
     var video = document.createElement('video'),
         canvas = document.querySelector('#main_canvas'),
         button = document.querySelector('button'),
+        img1 = document.querySelector('#img1'),
+        img2 = document.querySelector('#img2'),
+        img3 = document.querySelector('#img3'),
         canvasMouseX,
         canvasMouseY,
         dresses = new Array(),
@@ -10,7 +13,16 @@ var EDress = (function() {
     video.autoplay = true;
     canvas.addEventListener('mousedown', mouseDown);
     button.addEventListener('click', shoot);
-    
+    img1.addEventListener('click', function() {
+       dressIndex = 1; 
+       alert(dressIndex);
+    });
+    img2.addEventListener('click', function() {
+       dressIndex = 2; 
+    });
+    img3.addEventListener('click', function() {
+       dressIndex = 3; 
+    });
     function mouseDown(event) {
         canvasMouseX = event.clientX - (canvas.offsetLeft - window.pageXOffset);
         canvasMouseY = event.clientY - (canvas.offsetTop - window.pageYOffset);
