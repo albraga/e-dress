@@ -86,3 +86,8 @@ var EDress = (function() {
 init();
 }());
 
+$(document).ready(function() {
+    $('#Carousel').carousel({
+        interval: 5000
+    });
+});
